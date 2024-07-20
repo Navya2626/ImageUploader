@@ -81,7 +81,6 @@ const styles = {
         height: 290,
         position: 'relative',
         width: '230px',
-        height: '290px',
         left: '30px',
         gap: '0px',
         opacity: '1',
