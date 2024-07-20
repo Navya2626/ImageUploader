@@ -400,7 +400,7 @@ const ProfileImage = () => {
                     image={coverImage}
                     alt="background"
                 />
-alalkzxnm.,a;sgfhjlksdgjsdlsd;sgfhjlk
+
                 <CardContent >
                     <Grid container>
                         <Grid item xs={7} sm={6} md={9} lg={9} xl={9}  >
