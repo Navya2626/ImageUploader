@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box, Button, Grid, LinearProgress, Modal, Radio } from '@mui/material';
+import { Box, Button, Grid, LinearProgress, Modal, Radio, Alert } from '@mui/material';
 import coverImage from '../images/cover.png';
 import defaultImage from '../images/defaultImage.png';
 import { styles } from '../styles/main';
@@ -21,6 +21,9 @@ const ProfileImage = () => {
     const [crop, setCrop] = useState({ x: 0, y: 0 });
     const [zoom, setZoom] = useState(1);
     const [croppedImage, setCroppedImage] = useState('');
+    const [alertMessage, setAlertMessage] = useState('');
+    const [showAlert, setShowAlert] = useState(false);
+
 
     const handleFileChange = (event) => {
         const files = event.target.files;
@@ -104,26 +107,27 @@ const ProfileImage = () => {
     };
 
     useEffect(() => {
-        if (cropModal) {
-            const imageData = sessionStorage.getItem('selectedImage');
-            console.log("imageDataget", imageData)
-            if (imageData) {
-                const image = JSON.parse(imageData);
-                setSelectedImageUrl(image.url);
-            }
+        if (alertMessage) {
+            setShowAlert(true);
         }
-    }, [cropModal]);
+    }, [alertMessage]);
 
     const handleCropConfirm = async () => {
-        sessionStorage.removeItem('selectedImage')
+        sessionStorage.removeItem('selectedImage');
         setSelectedImageIndex(null);
         try {
             const croppedImage = await getCroppedImg(selectedImageUrl, crop, zoom, 1);
             setCroppedImage(croppedImage.url);
             setCropModal(false);
+            setAlertMessage('Changes saved successfully');
         } catch (error) {
             console.error('Error cropping image:', error);
+            setAlertMessage('Upload failed. Please retry or contact us if you believe this is a bug.');
         }
+    };
+
+    const handleAlertClose = () => {
+        setShowAlert(false);
     };
 
     return (
@@ -245,7 +249,7 @@ const ProfileImage = () => {
                                             )}
                                         </Grid>
                                         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                                            {image.progress < 100 && image.error ? (
+                                            {image.progress < 100 ?(
                                                 <Button onClick={() => handleRemoveImage(index)} style={{ color: '#525252' }}>
                                                     x
                                                 </Button>
@@ -374,6 +378,15 @@ const ProfileImage = () => {
                     </Typography>
                 </Box>
             </Modal >
+            {showAlert && (
+                <Alert
+                    severity="success"
+                    onClose={handleAlertClose}
+                    style={{ display:'flex', alignItems:'center', justifyContent:'center',  top: 0, position:'fixed', margin: '16px', borderRadius:'80px' }}
+                >
+                    {alertMessage}
+                </Alert>        
+            )}
             <Card sx={{ width: 768, maxHeight: 420 }}>
                 <CardMedia
                     component="img"

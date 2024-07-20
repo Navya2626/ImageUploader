@@ -128,7 +128,7 @@ const styles = {
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: '-18%',
-        marginLeft:'2%',
+        marginLeft: '2%',
         "@media only screen and (max-width: 450px)": {
             width: '100%',
             marginLeft: '0%',
@@ -222,7 +222,16 @@ const styles = {
         '::-webkit-scrollbar-thumb:hover': {
             background: '#555',
         }
-    }
+    },
+    alertModal: {
+        marginRight: "30px",
+        height: "36px",
+        paddingTop: "2px",
+        paddingBottom: "2px",
+        "& .MuiAlert-message": {
+            overflow: "hidden",
+        },
+    },
 }
 export {
     styles
