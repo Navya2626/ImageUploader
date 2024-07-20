@@ -28,9 +28,9 @@ const ProfileImage = () => {
 
         if (imageFiles.length > 0) {
             const newImageDetails = imageFiles.map(file => {
-                const sizeInMB = (file.size / (1024 * 1024)).toFixed(2); // size in MB
+                const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
 
-                if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                if (file.size > 5 * 1024 * 1024) {
                     return {
                         url: URL.createObjectURL(file),
                         name: file.name,
@@ -67,8 +67,6 @@ const ProfileImage = () => {
             });
         }
     };
-
-
 
 
     const simulateUploadProgress = (index, fileDetail) => {
@@ -117,15 +115,12 @@ const ProfileImage = () => {
     }, [cropModal]);
 
     const handleCropConfirm = async () => {
-        console.log("dsfghj")
         sessionStorage.removeItem('selectedImage')
         setSelectedImageIndex(null);
         try {
             const croppedImage = await getCroppedImg(selectedImageUrl, crop, zoom, 1);
             setCroppedImage(croppedImage.url);
             setCropModal(false);
-            sessionStorage.removeItem('selectedImage')
-
         } catch (error) {
             console.error('Error cropping image:', error);
         }
@@ -301,7 +296,6 @@ const ProfileImage = () => {
                                             onClick={() => {
                                                 setCropModal(true);
                                                 setUploadModal(false);
-
                                             }}
                                         >
                                             Select image
@@ -332,24 +326,14 @@ const ProfileImage = () => {
                             </Grid>
                         </Grid>
                     </Typography>
-
                     <Typography>
-                        <Box id="modal-modal-description" sx={{
-                            ...styles.modalCropBody,
-                            position: 'relative',
-                            width: '230px',
-                            height: '290px',
-                            left: '30px',
-                            gap: '0px',
-                            opacity: '1',
-                            overflow: 'hidden'
-                        }} >
+                        <Box id="modal-modal-description" sx={styles.modalCropBody} >
                             {selectedImageUrl && (
                                 <Cropper
                                     image={selectedImageUrl}
                                     crop={crop}
                                     zoom={zoom}
-                                    aspect={1} // 1:1 aspect ratio for a square crop
+                                    aspect={1} 
                                     onCropChange={setCrop}
                                     onZoomChange={setZoom}
                                     cropShape="round"
@@ -371,9 +355,7 @@ const ProfileImage = () => {
                                     onClick={() => {
                                         setCropModal(false)
                                         setSelectedImageIndex(null)
-
-                                    }}
-                                >
+                                    }}>
                                     Cancel
                                 </Button>
                             </Grid>
@@ -384,7 +366,6 @@ const ProfileImage = () => {
                                     variant="contained"
                                     sx={styles.buttonSecondary}
                                     onClick={handleCropConfirm}
-                                // onClick={() => setCropModal(false)}
                                 >
                                     Confirm
                                 </Button>
@@ -404,13 +385,17 @@ const ProfileImage = () => {
                 <CardContent >
                     <Grid container>
                         <Grid item xs={7} sm={6} md={9} lg={9} xl={9}  >
-                            <CardMedia
+                            {/* <CardMedia
                                 component="img"
                                 // height="160"
                                 image={croppedImage || defaultImage}
                                 alt="profileImage"
                                 style={styles.profileImage}
-                            />
+                            /> */}
+                            <img
+                                src={croppedImage || defaultImage}
+                                alt={'profileImage'}
+                                style={styles.profileImage} />
                             <br />
                         </Grid>
                         <Grid item xs={5} sm={6} md={3} lg={3} xl={3}>

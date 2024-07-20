@@ -13,52 +13,6 @@ const styles = {
         fontSize: "24px",
         color: "#4338CA"
     },
-
-    // profilCard: {
-    //     "@media (min-height: 769px)": {
-    //         height: '420vh',
-    //         overflowY: 'hidden'
-    //     },
-    //     "@media (max-height: 769px)": {
-    //         height: '420vh',
-    //         overflowY: 'hidden'
-    //     },
-    //     "@media (max-height: 769px)": {
-    //         height: '420vh',
-    //         overflowY: 'hidden'
-    //     },
-    //     // "@media (max-width: 1600px)": {
-    //     //   height: '72vh',
-    //     //   overflowY: 'hidden'
-    //     // },
-    //     minHeigth: 420,
-    //     '& .MuiCardContent-root': {
-    //         paddingBottom: 0
-    //     },
-    // },
-
-    // profileCard: {
-    //     height: '420px',
-    //     width: '768px', // Default width
-
-    //     // Desktop
-    //     "@media (min-width: 1044px) and (min-height: 768px)": {
-    //         width: '768vw'
-    //     },
-
-    //     // Tablet
-    //     "@media (min-width: 768px) and (max-width: 1043px) and (min-height: 1024px)": {
-    //         width: '60px'
-    //     },
-
-    //     // Mobile
-    //     "@media (max-width: 767px) and (max-height: 812px)": {
-    //         width: '320vw'
-    //     }
-
-
-    // },
-
     createAlert: {
         marginTop: '8px',
         marginRight: '30px',
@@ -69,8 +23,6 @@ const styles = {
             overflow: 'hidden',
         }
     },
-
-
     modalBox: {
         borderRadius: '10px',
         position: 'absolute',
@@ -86,14 +38,12 @@ const styles = {
             marginLeft: "0%",
             marginRight: "20%",
         },
-
     },
-
-    profileCard:{
-        width: '200px',  
-        height: '200px', 
+    profileCard: {
+        width: '200px',
+        height: '200px',
         // borderRadius: '50px', 
-        clipPath: 'circle(40%)', 
+        clipPath: 'circle(40%)',
         borderColor: 'white',
         backgroundColor: 'white',
         display: 'flex',
@@ -102,10 +52,10 @@ const styles = {
         marginTop: '-20%',
         // marginLeft: '-30%',
         "@media only screen and (max-width: 450px)": {
-         width:'20%',
-            backgroundColor:'black',
+            width: '20%',
+            backgroundColor: 'black',
             marginTop: '-6%',
-            marginLeft:'20%'
+            marginLeft: '20%'
         },
     },
     modalCropBox: {
@@ -128,21 +78,20 @@ const styles = {
         marginTop: '0px !important',
         fontSize: "12px",
         // backgroundColor: '#000000',
-        height: 290
+        height: 290,
+        position: 'relative',
+        width: '230px',
+        height: '290px',
+        left: '30px',
+        gap: '0px',
+        opacity: '1',
+        overflow: 'hidden'
     },
-
-
-
-
-
-
     modalTitle: {
-
         paddingTop: '8px',
         paddingBottom: '8px',
         paddingLeft: '28px',
         paddingRight: '8px',
-
     },
     modalBody: {
         paddingTop: '0px',
@@ -152,7 +101,6 @@ const styles = {
         overflowY: 'hidden',
         marginTop: '0px !important',
         fontSize: "12px",
-
     },
     modalGrid: {
         background: "#FAFAFA",
@@ -171,21 +119,23 @@ const styles = {
         overflowY: "scroll",
         overflowX: "hidden"
     },
-   profileImage:{
-        width: 150,
-        height: 150,
+    profileImage: {
+        width: '150px',
+        height: '150px',
         clipPath: 'circle(50%)',
-        marginTop: '-18%',
+        borderColor: 'white',
+        backgroundColor: 'white',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: '-18%',
+        marginLeft:'2%',
         "@media only screen and (max-width: 450px)": {
             width: '100%',
-            marginLeft:'0%',
-            marginTop: '-28%',  
+            marginLeft: '0%',
+            marginTop: '-28%',
         },
     },
-
     modalFooter: {
         paddingTop: '0px',
         paddingBottom: '25px',
@@ -195,7 +145,6 @@ const styles = {
         // marginRight:'0px',
         width: '100%',
     },
-
     modalTextField: {
         '&  .MuiOutlinedInput-root': {
             border: '6px',
@@ -205,7 +154,7 @@ const styles = {
         backgroundColor: "#FFFFFF",
         color: 'black',
         textTransform: 'none',
-        borderColor:'#E5E5E5',
+        borderColor: '#E5E5E5',
         "&:hover": {
             backgroundColor: "#FAFAFA",
             outline: "none",
@@ -247,38 +196,32 @@ const styles = {
         backgroundColor: '#E0E0E0',
         '& .MuiLinearProgress-bar': { backgroundColor: '#4338CA' }
     },
-
-    
     imageData: {
         height: "150px",
         overflowX: 'hidden',
-        // WebKit browsers
         scrollbarWidth: 'thin',
         scrollbarColor: '#888 transparent',
-        // Firefox
     },
     imageDataMore: {
         maxHeight: "150px",
         overflowY: "auto",
         overflowX: 'hidden',
-        // WebKit browsers
         scrollbarWidth: 'thin',
         scrollbarColor: '#888 transparent',
-        // Firefox
     },
     webkitScrollbar: {
         '::-webkit-scrollbar': {
-            width: '4px', /* Thin scrollbar width */
+            width: '2px',
         },
         '::-webkit-scrollbar-track': {
-            background: 'transparent', /* Track background */
+            background: 'transparent',
         },
         '::-webkit-scrollbar-thumb': {
-            background: '#888', /* Scrollbar thumb color */
-            borderRadius: '2px', /* Rounded corners for the scrollbar */
+            background: '#888',
+            borderRadius: '2px',
         },
         '::-webkit-scrollbar-thumb:hover': {
-            background: '#555', /* Darker color on hover */
+            background: '#555',
         }
     }
 }
