@@ -22,6 +22,8 @@ const ProfileImage = () => {
     const [zoom, setZoom] = useState(1);
     const [croppedImage, setCroppedImage] = useState('');
     const [alertMessage, setAlertMessage] = useState('');
+    const [alertSeverity, setAlertSeverity] = useState('success');
+    const [buttonText, setButtonText] = useState('success');
     const [showAlert, setShowAlert] = useState(false);
 
 
@@ -132,9 +134,13 @@ const ProfileImage = () => {
             setCroppedImage(croppedImage.url);
             setCropModal(false);
             setAlertMessage('Changes saved successfully');
+            setAlertSeverity('success');
+            setButtonText('success');
         } catch (error) {
             console.error('Error cropping image:', error);
             setAlertMessage('Upload failed. Please retry or contact us if you believe this is a bug.');
+            setAlertSeverity('error');
+            setButtonText('error');
         }
     };
 
@@ -250,7 +256,7 @@ const ProfileImage = () => {
                                                     <Button onClick={() => handleCropImage(index)}
                                                         style={styles.deleteButton}>
                                                         <FontAwesomeIcon icon={faCropSimple} />&ensp;Crop
-                                                    </Button>   •
+                                                    </Button>   
                                                     <Button onClick={() => handleRemoveImage(index)}
                                                         style={styles.deleteButton}>
                                                         <FontAwesomeIcon icon={faTrashCan} />&ensp;Delete
@@ -390,7 +396,7 @@ const ProfileImage = () => {
             </Modal >
             {showAlert && (
                 <Alert
-                    severity="success"
+                    severity={alertSeverity}
                     icon={false}
                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', top: 0, position: 'fixed', margin: '16px', borderRadius: '80px' }}
                 >
@@ -407,7 +413,7 @@ const ProfileImage = () => {
                                 marginRight: '8px'
                             }}
                         >
-                            Success
+                            {buttonText}
                         </Button>
                         {alertMessage}
                     </Box>

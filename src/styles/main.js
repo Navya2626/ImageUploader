@@ -129,6 +129,7 @@ const styles = {
         justifyContent: 'center',
         marginTop: '-18%',
         marginLeft: '2%',
+        // objectfit:'cover',
         "@media only screen and (max-width: 450px)": {
             width: '100%',
             marginLeft: '0%',
