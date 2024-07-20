@@ -171,6 +171,20 @@ const styles = {
         overflowY: "scroll",
         overflowX: "hidden"
     },
+   profileImage:{
+        width: 150,
+        height: 150,
+        clipPath: 'circle(50%)',
+        marginTop: '-18%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        "@media only screen and (max-width: 450px)": {
+            width: '100%',
+            marginLeft:'0%',
+            marginTop: '-28%',  
+        },
+    },
 
     modalFooter: {
         paddingTop: '0px',
@@ -234,10 +248,7 @@ const styles = {
         '& .MuiLinearProgress-bar': { backgroundColor: '#4338CA' }
     },
 
-    imgCircle: {
-        maxWidth: '100%',
-        height: 'auto',
-    },
+    
     imageData: {
         height: "150px",
         overflowX: 'hidden',

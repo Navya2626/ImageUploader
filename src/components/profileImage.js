@@ -404,47 +404,13 @@ const ProfileImage = () => {
                 <CardContent >
                     <Grid container>
                         <Grid item xs={7} sm={6} md={9} lg={9} xl={9}  >
-                            {/* <Card
-                                style={{
-                                    width: '200px',  // Adjust size as needed
-                                    height: '200px', // Ensure width and height are equal for a perfect circle
-                                    // borderRadius: '50px', // Make corners fully rounded
-                                    clipPath: 'circle(40%)', // Clip to a circle
-                                    borderColor: 'white',
-                                    backgroundColor: 'white',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    marginTop: '-20%',
-                                    // marginLeft: '-30%',
-                                }}
-                            > */}
                             <CardMedia
                                 component="img"
                                 // height="160"
                                 image={croppedImage || defaultImage}
                                 alt="profileImage"
-                                style={{
-                                    width: '150px',
-                                    height: '150px',
-                                    clipPath: 'circle(50%)',
-                                    marginTop: '-18%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    "@media only screen and (max-width: 450px)": {
-                                        width: '100px',
-                                        height: '100px',
-                                        clipPath: 'circle(50%)',
-                                        marginTop: '-28%',
-                                        
-                                       
-                                    },
-                                }}
+                                style={styles.profileImage}
                             />
-
-
-                            {/* </Card> */}
                             <br />
                         </Grid>
                         <Grid item xs={5} sm={6} md={3} lg={3} xl={3}>
