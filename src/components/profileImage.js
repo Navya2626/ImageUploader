@@ -117,10 +117,12 @@ const ProfileImage = () => {
     };
 
     useEffect(() => {
-        if (alertMessage) {
+        {console.log("croppedimage", croppedImage)}
+        if (alertMessage || croppedImage) {
             setShowAlert(true);
         }
-    }, [alertMessage]);
+    
+    }, [alertMessage, croppedImage]);
 
     const handleCropConfirm = async () => {
         sessionStorage.removeItem('selectedImage');
@@ -136,9 +138,7 @@ const ProfileImage = () => {
         }
     };
 
-    const handleAlertClose = () => {
-        setShowAlert(false);
-    };
+
 
     return (
         <>
@@ -259,7 +259,7 @@ const ProfileImage = () => {
                                             )}
                                         </Grid>
                                         <Grid item xs={1} sm={1} md={1} lg={1} xl={1}>
-                                            {image.progress < 100 ?(
+                                            {image.progress < 100 ? (
                                                 <Button onClick={() => handleRemoveImage(index)} style={{ color: '#525252' }}>
                                                     x
                                                 </Button>
@@ -347,7 +347,7 @@ const ProfileImage = () => {
                                     image={selectedImageUrl}
                                     crop={crop}
                                     zoom={zoom}
-                                    aspect={1} 
+                                    aspect={1}
                                     onCropChange={setCrop}
                                     onZoomChange={setZoom}
                                     cropShape="round"
@@ -391,11 +391,27 @@ const ProfileImage = () => {
             {showAlert && (
                 <Alert
                     severity="success"
-                    onClose={handleAlertClose}
-                    style={{ display:'flex', alignItems:'center', justifyContent:'center',  top: 0, position:'fixed', margin: '16px', borderRadius:'80px' }}
+                    icon={false}
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', top: 0, position: 'fixed', margin: '16px', borderRadius: '80px' }}
                 >
-                    {alertMessage}
-                </Alert>        
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Button
+                            color="inherit"
+                            size="small"
+                            style={{
+                                backgroundColor: 'white',
+                                borderRadius: '30px',
+                                boxShadow: '1px 4px 8px rgba(0, 0, 0, 0.1)',
+                                padding: '4px 8px',
+                                textTransform: 'none',
+                                marginRight: '8px'
+                            }}
+                        >
+                            Success
+                        </Button>
+                        {alertMessage}
+                    </Box>
+                </Alert>
             )}
             <Card sx={{ width: 768, maxHeight: 420 }}>
                 <CardMedia
@@ -407,7 +423,7 @@ const ProfileImage = () => {
 
                 <CardContent >
                     <Grid container>
-                        <Grid item xs={7} sm={6} md={9} lg={9} xl={9}  >
+                        <Grid item xs={7} sm={9} md={9} lg={9} xl={9}  >
                             {/* <CardMedia
                                 component="img"
                                 // height="160"
@@ -421,7 +437,7 @@ const ProfileImage = () => {
                                 style={styles.profileImage} />
                             <br />
                         </Grid>
-                        <Grid item xs={5} sm={6} md={3} lg={3} xl={3}>
+                        <Grid item xs={5} sm={3} md={3} lg={3} xl={3}>
                             <Button
                                 component="label"
                                 role={undefined}
@@ -430,7 +446,7 @@ const ProfileImage = () => {
                                 onClick={() => {
                                     setUploadModal(true);
                                     setImageDetails([]);
-
+                                    setShowAlert(false)
                                 }}
                             >
                                 Update Picture
