@@ -106,6 +106,16 @@ const ProfileImage = () => {
         console.log("imageDataset", sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage)))
     };
 
+    const handleCropImage = (index) => {
+        setSelectedImageIndex(index);
+        const selectedImage = imageDetails[index];
+        setSelectedImageUrl(selectedImage.url);
+        sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage));
+        console.log("imageDataset", sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage)))
+        setCropModal(true);
+        setUploadModal(false);
+    };
+
     useEffect(() => {
         if (alertMessage) {
             setShowAlert(true);
@@ -237,7 +247,7 @@ const ProfileImage = () => {
                                                 </Typography>
                                             ) : (
                                                 <>
-                                                    <Button onClick={() => handleRemoveImage(index)}
+                                                    <Button onClick={() => handleCropImage(index)}
                                                         style={styles.deleteButton}>
                                                         <FontAwesomeIcon icon={faCropSimple} />&ensp;Crop
                                                     </Button>   •
