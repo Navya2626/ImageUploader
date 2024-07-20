@@ -226,10 +226,10 @@ const ProfileImage = () => {
                             }>
                                 {imageDetails.map((image, index) => (
                                     <React.Fragment key={index}  >
-                                        <Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-                                            <img src={image.url} alt={`preview-${index}`} style={{ width: '80px', height: '80px', borderRadius: '6px' }} />
+                                        <Grid item xs={3} sm={2} md={2} lg={2} xl={2}>
+                                            <img src={image.url} alt={`preview-${index}`} style={{ width: '70px', height: '70px', borderRadius: '6px' }} />
                                         </Grid>
-                                        <Grid item xs={9} sm={9} md={9} lg={9} xl={9}>
+                                        <Grid item xs={7} sm={9} md={9} lg={9} xl={9}>
                                             <Typography variant="body2" style={styles.primary}>
                                                 {image.name}
                                             </Typography>
