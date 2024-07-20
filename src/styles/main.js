@@ -82,9 +82,9 @@ const styles = {
         boxShadow: 24,
         '&:focus': { outline: 'none' },
         "@media only screen and (max-width: 450px)": {
-            width: "80%",
+            width: "90%",
             marginLeft: "0%",
-            marginRight: "10%",
+            marginRight: "20%",
         },
 
     },
@@ -191,6 +191,7 @@ const styles = {
         backgroundColor: "#FFFFFF",
         color: 'black',
         textTransform: 'none',
+        borderColor:'#E5E5E5',
         "&:hover": {
             backgroundColor: "#FAFAFA",
             outline: "none",

@@ -241,7 +241,7 @@ const ProfileImage = () => {
                                                     <Button onClick={() => handleRemoveImage(index)}
                                                         style={styles.deleteButton}>
                                                         <FontAwesomeIcon icon={faCropSimple} />&ensp;Crop
-                                                    </Button>
+                                                    </Button>   •
                                                     <Button onClick={() => handleRemoveImage(index)}
                                                         style={styles.deleteButton}>
                                                         <FontAwesomeIcon icon={faTrashCan} />&ensp;Delete
@@ -465,10 +465,10 @@ const ProfileImage = () => {
                     </Grid>
 
                     <Typography gutterBottom variant="h6" component="div">
-                        <b>Jack Smith</b>
+                        <b>Navya M K</b>
                     </Typography>
                     <Typography variant="body2" color="#000000">
-                        @kingjack • Senior Product Designer at Webflow • He/Him
+                        @Bangalore • Frontend Developer at Alten • She/Her
                     </Typography>
                 </CardContent>
             </Card >
