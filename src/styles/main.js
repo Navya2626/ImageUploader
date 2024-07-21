@@ -131,7 +131,7 @@ const styles = {
         marginLeft: '2%',
         // objectfit:'cover',
         "@media only screen and (max-width: 450px)": {
-            width: '100%',
+            // width: '100%',
             marginLeft: '0%',
             marginTop: '-28%',
         },

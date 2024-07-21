@@ -5,12 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box, Button, Grid, LinearProgress, Modal, Radio, Alert } from '@mui/material';
 import coverImage from '../images/cover.png';
-import defaultImage from '../images/defaultImage.png';
+import defaultImage from '../images/avatar_four.jpg';
 import { styles } from '../styles/main';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudArrowUp, faCropSimple, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import Cropper from 'react-easy-crop';
-import getCroppedImg from '../components/cropImage';
+
 
 const ProfileImage = () => {
     const [uploadModal, setUploadModal] = useState(false);
@@ -130,8 +130,7 @@ const ProfileImage = () => {
         sessionStorage.removeItem('selectedImage');
         setSelectedImageIndex(null);
         try {
-            const croppedImage = await getCroppedImg(selectedImageUrl, crop, zoom, 1);
-            setCroppedImage(croppedImage.url);
+            setCroppedImage(selectedImageUrl);
             setCropModal(false);
             setAlertMessage('Changes saved successfully');
             setAlertSeverity('success');
@@ -141,6 +140,7 @@ const ProfileImage = () => {
             setAlertMessage('Upload failed. Please retry or contact us if you believe this is a bug.');
             setAlertSeverity('error');
             setButtonText('error');
+            setCropModal(false)
         }
     };
 
