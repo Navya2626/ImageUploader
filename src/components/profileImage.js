@@ -64,7 +64,6 @@ const ProfileImage = () => {
 
             setImageDetails(prevDetails => [...prevDetails, ...newImageDetails]);
 
-            // Simulate upload progress for each file (excluding those with errors)
             newImageDetails.forEach((fileDetail, index) => {
                 if (!fileDetail.error) {
                     simulateUploadProgress(index, fileDetail);
@@ -105,7 +104,6 @@ const ProfileImage = () => {
         const selectedImage = imageDetails[index];
         setSelectedImageUrl(selectedImage.url);
         sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage));
-        console.log("imageDataset", sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage)))
     };
 
     const handleCropImage = (index) => {
@@ -113,13 +111,11 @@ const ProfileImage = () => {
         const selectedImage = imageDetails[index];
         setSelectedImageUrl(selectedImage.url);
         sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage));
-        console.log("imageDataset", sessionStorage.setItem('selectedImage', JSON.stringify(selectedImage)))
         setCropModal(true);
         setUploadModal(false);
     };
 
     useEffect(() => {
-        {console.log("croppedimage", croppedImage)}
         if (alertMessage || croppedImage) {
             setShowAlert(true);
         }
@@ -143,7 +139,6 @@ const ProfileImage = () => {
             setCropModal(false)
         }
     };
-
 
 
     return (
@@ -227,7 +222,7 @@ const ProfileImage = () => {
                                 {imageDetails.map((image, index) => (
                                     <React.Fragment key={index}  >
                                         <Grid item xs={3} sm={2} md={2} lg={2} xl={2}>
-                                            <img src={image.url} alt={`preview-${index}`} style={{ width: '70px', height: '70px', borderRadius: '6px' }} />
+                                            <img src={image.url} alt={`preview-${index}`} style={{ width: '71px', height: '71px', borderRadius: '6px' }} />
                                         </Grid>
                                         <Grid item xs={7} sm={9} md={9} lg={9} xl={9}>
                                             <Typography variant="body2" style={styles.primary}>
@@ -430,13 +425,6 @@ const ProfileImage = () => {
                 <CardContent >
                     <Grid container>
                         <Grid item xs={7} sm={9} md={9} lg={9} xl={9}  >
-                            {/* <CardMedia
-                                component="img"
-                                // height="160"
-                                image={croppedImage || defaultImage}
-                                alt="profileImage"
-                                style={styles.profileImage}
-                            /> */}
                             <img
                                 src={croppedImage || defaultImage}
                                 alt={'profileImage'}
@@ -459,7 +447,6 @@ const ProfileImage = () => {
                             </Button>
                         </Grid>
                     </Grid>
-
                     <Typography gutterBottom variant="h6" component="div">
                         <b>Navya M K</b>
                     </Typography>
